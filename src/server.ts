@@ -1,9 +1,27 @@
-import fastify from "fastify";
+import "reflect-metadata";
 
-const app = fastify();
+import express from "express";
+import { InversifyExpressServer, next } from "inversify-express-utils";
+import container from "./inversify.container";
+import { HelloController } from "./controllers/hello.controller";
+import logger from "./common/logger";
 
-app.get('/hello', () => { return 'hello' });
+const server = new InversifyExpressServer(container);
 
-app.listen({
-    port: 3333,
-}).then(() => console.log('HTTP Server Running!'))
+server.setConfig((app) => {
+    app.use(express.json());
+
+    app.use((req, res, next) => {
+        logger.info(req.url);
+
+        next()
+    })
+});
+
+const app = server.build();
+
+container.bind<HelloController>(HelloController).toSelf();
+
+app.listen(3000, () => {
+    console.log("Servidor ouvindo na porta 3000...");
+});
