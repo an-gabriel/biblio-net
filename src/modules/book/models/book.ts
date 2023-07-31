@@ -4,9 +4,6 @@ const bookSchema = new mongoose.Schema(
     {
         id: { type: String },
         name: { type: String, required: true }
-    },
-    {
-        versionKey: false
     }
 );
 

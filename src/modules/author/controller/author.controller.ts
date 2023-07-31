@@ -32,7 +32,7 @@ export class AuthorController {
         try {
             const { id } = req.params;
 
-            const authos = await authors.findByIdAndUpdate(
+            await authors.findByIdAndUpdate(
                 id,
                 {
                     $set: req.body
