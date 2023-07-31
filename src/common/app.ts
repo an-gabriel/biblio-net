@@ -1,6 +1,9 @@
+import 'dotenv/config'
+require('dotenv').config()
 import express from "express";
+
 import { InversifyExpressServer } from "inversify-express-utils";
-import { DiContainer } from "../DiContainer";
+import { DiContainer } from "../di.container";
 import logger from "./logger";
 
 const container = DiContainer.getContainer();
