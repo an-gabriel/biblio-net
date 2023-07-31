@@ -4,5 +4,10 @@ export enum PathRoutes {
     HELLO_WORLD = '/hello-world',
     AUTH = '/auth',
     LOGIN = '/login',
-    LOGOUT = '/logout'
+    LOGOUT = '/logout',
+    BOOK = '/book',
+    AUTHOR = '/author',
+    CREATE = '/create',
+    UPDATE = '/update',
+    DELETE = '/delete'
 }
