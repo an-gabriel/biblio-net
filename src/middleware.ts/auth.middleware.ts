@@ -13,8 +13,19 @@ export class AuthMiddleware {
     public validateToken(req: Request, res: Response, next: NextFunction) {
         const token = req.headers.authorization?.split(" ")[1];
 
-        if (req.path === PathRoutes.HEALTH_CHECK) {
+        const allowed = [
+            `${PathRoutes.HEALTH_CHECK}`,
+            `${PathRoutes.AUTH}${PathRoutes.LOGIN}`,
+            `${PathRoutes.BOOK}`,
+            `${PathRoutes.AUTHOR}${PathRoutes.CREATE}`,
+            `${PathRoutes.AUTHOR}${PathRoutes.UPDATE}`,
+            `${PathRoutes.AUTHOR}${PathRoutes.DELETE}`,
+        ]
+
+        if (!!allowed.map(i => i.includes(req.path))) {
+            console.log(`${PathRoutes.AUTHOR}${PathRoutes.DELETE}`, req.path)
             next();
+            return 
         }
 
         if (!token) {
