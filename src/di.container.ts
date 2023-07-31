@@ -1,7 +1,9 @@
 import { Container } from "inversify";
-import { HelloController } from "./controllers/hello.controller";
-import { HealthCheckController } from "./controllers/health-check.controller";
-import { AuthController } from "./controllers/auth.controller";
+import { HelloController } from "./modules/base/controller/hello.controller";
+import { HealthCheckController } from "./modules/health-check/controller/health-check.controller";
+import { AuthController } from "./modules/auth/controller/auth.controller";
+import { BookController } from "./modules/book/controller/book.controller";
+import { AuthorController } from "./modules/author/controller/author.controller";
 
 export class DiContainer {
     private static container: Container;
@@ -18,5 +20,7 @@ export class DiContainer {
         this.container.bind<HelloController>(HelloController).toSelf();
         this.container.bind<HealthCheckController>(HealthCheckController).toSelf();
         this.container.bind<AuthController>(AuthController).toSelf();
+        this.container.bind<BookController>(BookController).toSelf();
+        this.container.bind<AuthorController>(AuthorController).toSelf();
     }
 }
