@@ -2,6 +2,3 @@ node_modules
 *.js
 .env
 .env*
-.flaskenv*
-!.env.project
-!.env.vault

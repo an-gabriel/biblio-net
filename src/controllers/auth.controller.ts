@@ -3,11 +3,13 @@ import { Request, Response } from "express";
 import { controller, httpPost } from "inversify-express-utils";
 import jwt from "jsonwebtoken";
 
-@controller("/auth")
+import { PathRoutes } from "../enum/path-routes";
+
+@controller(PathRoutes.AUTH)
 export class AuthController {
     private readonly SECRET_KEY = process.env.PRIVATE_KEY ?? ""
 
-    @httpPost("/login")
+    @httpPost(PathRoutes.LOGIN)
     public login(req: Request, res: Response) {
         const { username, password } = req.body;
 
@@ -20,7 +22,7 @@ export class AuthController {
         }
     }
 
-    @httpPost("/logout")
+    @httpPost(PathRoutes.LOGOUT)
     public logout(req: Request, res: Response) {
         console.log("oi")
         res.status(200).send({ auth: false, token: null });
