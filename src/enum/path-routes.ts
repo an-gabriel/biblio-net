@@ -6,6 +6,7 @@ export enum PathRoutes {
     LOGIN = '/login',
     LOGOUT = '/logout',
     BOOK = '/book',
+    DETAIL = '/detail',
     AUTHOR = '/author',
     CREATE = '/create',
     UPDATE = '/update',
