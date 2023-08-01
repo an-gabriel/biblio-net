@@ -66,3 +66,7 @@ quando finalizar o processo de build, basta executar o comando abaixo para inici
 ```bash
 docker-compose up
 ```
+
+
+
+>___IMPORTANTE___: Para execução das rotas, está disponivel no projeto a pasta postman, basta baixar a colection e a env para utilizar.
