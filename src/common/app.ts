@@ -5,17 +5,15 @@ import express from "express";
 import "../database.connect"
 
 import { InversifyExpressServer } from "inversify-express-utils";
-import cookieParser from 'cookie-parser'
 
 import logger from "./logger";
 import { DiContainer } from "../di.container";
-import { AuthMiddleware } from '../middleware.ts/auth.middleware';
+import { AuthMiddleware } from '../middleware/auth.middleware';
 
 const container = DiContainer.getContainer();
 const server = new InversifyExpressServer(container);
 
 server.setConfig((app) => {
-
     const authMiddleware = new AuthMiddleware();
     app.use((req, res, next) => {
         logger.info(req.url);
