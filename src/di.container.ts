@@ -4,6 +4,7 @@ import { HealthCheckController } from "./modules/health-check/controller/health-
 import { AuthController } from "./modules/auth/controller/auth.controller";
 import { BookController } from "./modules/book/controller/book.controller";
 import { AuthorController } from "./modules/author/controller/author.controller";
+import BookStockService from "./modules/book-stock/service/book-stock.service";
 
 export class DiContainer {
     private static container: Container;
@@ -22,5 +23,6 @@ export class DiContainer {
         this.container.bind<AuthController>(AuthController).toSelf();
         this.container.bind<BookController>(BookController).toSelf();
         this.container.bind<AuthorController>(AuthorController).toSelf();
+        this.container.bind<BookStockService>(BookStockService).toSelf();
     }
 }
