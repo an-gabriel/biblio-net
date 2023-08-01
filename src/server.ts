@@ -1,9 +1,6 @@
-import fastify from "fastify";
+import 'reflect-metadata';
+import app from './common/app';
 
-const app = fastify();
-
-app.get('/hello', () => { return 'hello' });
-
-app.listen({
-    port: 3333,
-}).then(() => console.log('HTTP Server Running!'))
+app.listen(3000, () => {
+  console.log('Servidor ouvindo na porta 3000...');
+});
