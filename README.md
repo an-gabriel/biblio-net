@@ -70,3 +70,5 @@ docker-compose up
 
 
 >___IMPORTANTE___: Para execução das rotas, está disponivel no projeto a pasta postman, basta baixar a colection e a env para utilizar.
+
+ps : Lembrei que preciso colocar o .env, geralmente utilizaria o secrets manager da aws para segurar variaveis de ambiente. 
